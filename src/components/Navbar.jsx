@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, } from "react-router-dom";
 import { FaCartArrowDown, FaHeart } from "react-icons/fa6";
 
 const Navbar = () => {
@@ -16,6 +16,7 @@ const Navbar = () => {
       </li>
     </>
   );
+
   return (
     <div className="max-w-screen-2xl mx-auto md:p-3 bg-highlight text-white">
       <div className="navbar max-w-screen-xl mx-auto">
