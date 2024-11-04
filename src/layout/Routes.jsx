@@ -53,7 +53,7 @@ import ProductDetails from "../components/ProductDetails";
         ]
     },
     {
-      path :'Home/All Products/:productId',
+      path :'Home/:category/:productId',
       element :<ProductDetails/>,
       loader : ()=> fetch('../AllData.json')
     }

@@ -17,7 +17,7 @@ const CategoriesContainer = () => {
             {categories.map(category=>
             <NavLink
             key={category.id}
-            to={`home/${category.category}`}
+            to={`/home/${category.category}`}
             className={({isActive}) => `btn  rounded-3xl px-7 flex-grow ${isActive ? 'border-2 border-purple-500' : ''}`}>
                     {category.category}
             </NavLink> )}

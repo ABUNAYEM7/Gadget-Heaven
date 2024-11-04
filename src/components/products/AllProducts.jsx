@@ -42,7 +42,7 @@ const AllProducts = () => {
         <p className="text-lg font-medium text-secondary">Price : {element.price}$</p>
         <div className="card-actions justify-end">
           <Link
-          to={`${element.id}`}
+          to={`/Home/${element.category}/${element.id}`}
            className="btn px-4 bg-highlight text-white hover:text-highlight">View Details</Link>
         </div>
       </div>
