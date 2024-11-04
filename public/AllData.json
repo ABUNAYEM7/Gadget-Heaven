@@ -1,0 +1,168 @@
+[
+    {
+      "id": 1,
+      "title": "Apple MacBook Pro 13",
+      "image": "https://i.ibb.co/RSxz1Vc/1.jpg",
+      "category": "MacBooks",
+      "price": 1299.99,
+      "description": "The Apple MacBook Pro with M1 chip offers powerful performance.",
+      "specification": ["M1 Chip", "8GB RAM", "256GB SSD", "13-inch Retina Display"],
+      "availability": true,
+      "rating": 4.8
+    },
+    {
+      "id": 2,
+      "title": "Apple MacBook Air 13",
+      "image": "https://i.ibb.co/1MKmXvv/2.jpg",
+      "category": "MacBooks",
+      "price": 999.99,
+      "description": "Lightweight and portable, ideal for everyday use.",
+      "specification": ["M1 Chip", "8GB RAM", "256GB SSD", "13-inch Retina Display"],
+      "availability": true,
+      "rating": 4.7
+    },
+    {
+      "id": 3,
+      "title": "Samsung Galaxy S21",
+      "image": "https://i.ibb.co/hHN4049/3.png",
+      "category": "Phones",
+      "price": 799.99,
+      "description": "A powerful phone with a high-quality camera and performance.",
+      "specification": ["Snapdragon 888", "8GB RAM", "128GB Storage", "6.2-inch Display"],
+      "availability": false,
+      "rating": 4.5
+    },
+    {
+      "id": 4,
+      "title": "iPhone 13",
+      "image": "https://i.ibb.co/wWby5qh/4.webp",
+      "category": "iPhones",
+      "price": 999.99,
+      "description": "The latest iPhone with an improved camera and performance.",
+      "specification": ["A15 Bionic", "6GB RAM", "128GB Storage", "6.1-inch OLED"],
+      "availability": true,
+      "rating": 4.9
+    },
+    {
+      "id": 5,
+      "title": "Sony WH-1000XM4 Headphones",
+      "image": "https://i.ibb.co/svCMSgr/5.jpg",
+      "category": "Accessories",
+      "price": 349.99,
+      "description": "Noise-canceling headphones with great sound quality.",
+      "specification": ["Bluetooth 5.0", "30-hour battery", "Noise-canceling", "Over-ear"],
+      "availability": true,
+      "rating": 4.8
+    },
+    {
+      "id": 6,
+      "title": "Dell XPS 13",
+      "image": "https://i.ibb.co/tPKZ8MR/6.jpg",
+      "category": "Laptops",
+      "price": 1199.99,
+      "description": "A sleek and powerful laptop with a stunning display.",
+      "specification": ["Intel i7", "16GB RAM", "512GB SSD", "13.4-inch 4K Display"],
+      "availability": true,
+      "rating": 4.6
+    },
+    {
+      "id": 7,
+      "title": "Asus ROG Zephyrus G14",
+      "image": "https://i.ibb.co/qpMMTX3/7.jpg",
+      "category": "Laptops",
+      "price": 1499.99,
+      "description": "High-performance gaming laptop with AMD Ryzen processor.",
+      "specification": ["AMD Ryzen 9", "16GB RAM", "1TB SSD", "14-inch FHD"],
+      "availability": false,
+      "rating": 4.7
+    },
+    {
+      "id": 8,
+      "title": "Apple iPhone 12",
+      "image": "https://i.ibb.co/fNzKyf9/8.jpg",
+      "category": "iPhones",
+      "price": 799.99,
+      "description": "Powerful and reliable with advanced features.",
+      "specification": ["A14 Bionic", "4GB RAM", "128GB Storage", "6.1-inch OLED"],
+      "availability": true,
+      "rating": 4.6
+    },
+    {
+      "id": 9,
+      "title": "Logitech MX Master 3 Mouse",
+      "image": "https://i.ibb.co/F82BpF7/9.jpg",
+      "category": "Accessories",
+      "price": 99.99,
+      "description": "Advanced wireless mouse with ergonomic design.",
+      "specification": ["Bluetooth", "4000 DPI sensor", "USB-C charging", "7 buttons"],
+      "availability": true,
+      "rating": 4.7
+    },
+    {
+      "id": 10,
+      "title": "Apple iPhone 11",
+      "image": "https://i.ibb.co/25NyL5Y/10.jpg",
+      "category": "iPhones",
+      "price": 599.99,
+      "description": "Reliable performance with dual-camera system.",
+      "specification": ["A13 Bionic", "4GB RAM", "64GB Storage", "6.1-inch LCD"],
+      "availability": false,
+      "rating": 4.5
+    },
+    {
+      "id": 11,
+      "title": "MacBook Pro 16",
+      "image": "https://i.ibb.co/SPpcMR3/11.jpg",
+      "category": "MacBooks",
+      "price": 2399.99,
+      "description": "High-performance MacBook Pro with a larger screen.",
+      "specification": ["M1 Pro", "16GB RAM", "512GB SSD", "16-inch Retina Display"],
+      "availability": true,
+      "rating": 4.9
+    },
+    {
+      "id": 12,
+      "title": "Samsung Galaxy Note 20",
+      "image": "https://i.ibb.co/y6LQ2zx/12.jpg",
+      "category": "Phones",
+      "price": 949.99,
+      "description": "A versatile phone with S Pen support.",
+      "specification": ["Snapdragon 865+", "8GB RAM", "256GB Storage", "6.7-inch AMOLED"],
+      "availability": false,
+      "rating": 4.5
+    },
+    {
+      "id": 13,
+      "title": "HP Spectre x360",
+      "image": "https://i.ibb.co/FxPMnyM/13.jpg",
+      "category": "Laptops",
+      "price": 1399.99,
+      "description": "A convertible laptop with a touch display.",
+      "specification": ["Intel i7", "16GB RAM", "512GB SSD", "13.3-inch FHD Touch"],
+      "availability": true,
+      "rating": 4.7
+    },
+    {
+      "id": 14,
+      "title": "Google Pixel 6",
+      "image": "https://i.ibb.co/93NwdsV/14.webp",
+      "category": "Phones",
+      "price": 599.99,
+      "description": "Google's latest phone with advanced AI features.",
+      "specification": ["Google Tensor", "8GB RAM", "128GB Storage", "6.4-inch OLED"],
+      "availability": true,
+      "rating": 4.6
+    },
+    {
+      "id": 15,
+      "title": "Apple Magic Keyboard",
+      "image": "https://i.ibb.co/ZxrGgV7/15.jpg",
+      "category": "Accessories",
+      "price": 99.99,
+      "description": "Wireless keyboard with smooth typing experience.",
+      "specification": ["Bluetooth", "Rechargeable", "Compact", "Compatible with macOS"],
+      "availability": true,
+      "rating": 4.8
+    }
+  ]
+  

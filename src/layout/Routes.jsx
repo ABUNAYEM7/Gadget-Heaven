@@ -1,6 +1,6 @@
 import {
     createBrowserRouter,
-    RouterProvider,
+    Navigate
   } from "react-router-dom";
 import MainLayout from "../pages/MainLayout";
 import Statistics from "../pages/Statistics";
@@ -10,12 +10,7 @@ import WishList from "../pages/WishList";
 import Errors from "../errorPage/Errors";
 import Home from "../pages/Home";
 import AllProducts from "../components/products/AllProducts";
-import Laptops from "../components/products/Laptops";
-import Phones from "../components/products/Phones";
-import Accessories from "../components/products/Accessories";
-import SmartWatches from "../components/products/SmartWatches";
-import MacBooks from "../components/products/Macbooks";
-import IPhones from "../components/products/Iphones";
+import ProductDetails from "../components/ProductDetails";
 
   const routes = createBrowserRouter([
     {
@@ -26,10 +21,16 @@ import IPhones from "../components/products/Iphones";
           {
             path :'/',
             element :<Home/>,
+            
             children :[
               {
+                index : true,
+                element : <Navigate to ='Home/All Products'/>
+              },
+              {
                 path :'Home/:category',
-                element :<AllProducts/>
+                element :<AllProducts/>,
+                loader : ()=> fetch('../AllData.json')
               },
             ]
           },
@@ -51,7 +52,11 @@ import IPhones from "../components/products/Iphones";
         }
         ]
     },
-   
+    {
+      path :'Home/All Products/:productId',
+      element :<ProductDetails/>,
+      loader : ()=> fetch('../AllData.json')
+    }
   ])
 
   export {routes}

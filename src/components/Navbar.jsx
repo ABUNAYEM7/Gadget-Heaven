@@ -1,12 +1,15 @@
-import React from "react";
-import { Link, NavLink, } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, NavLink, useLocation, } from "react-router-dom";
 import { FaCartArrowDown, FaHeart } from "react-icons/fa6";
+import { getStoredProducts } from "../Utility/utility";
 
 const Navbar = () => {
+  const [storedId,setStoredId] = useState([])
+  const {pathname} = useLocation()
   const links = (
     <>
       <li>
-        <NavLink className='text-sm font-medium  md:text-lg md:font-bold' to={"/"}>Home</NavLink>
+        <NavLink className='text-sm font-medium  md:text-lg md:font-bold duration-300' to={"/"}>Home</NavLink>
       </li>
       <li>
         <NavLink className='text-sm font-medium  md:text-lg md:font-bold'  to={"/Statistics"}>Statistics</NavLink>
@@ -16,9 +19,13 @@ const Navbar = () => {
       </li>
     </>
   );
-
+  useEffect(()=>{
+    const storeProduct = getStoredProducts()
+    setStoredId(storeProduct)
+  },[])
+ console.log(storedId.length)
   return (
-    <div className="max-w-screen-2xl mx-auto md:p-3 bg-highlight text-white">
+    <div className={`max-w-screen-2xl mx-auto md:p-3   ${pathname == '/Home/All%20Products' && 'bg-highlight text-white'}`}>
       <div className="navbar max-w-screen-xl mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
@@ -50,17 +57,18 @@ const Navbar = () => {
           </div>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1 space-x-4">{links}</ul>
+          <ul className="menu menu-horizontal px-1 space-x-6">{links}</ul>
         </div>
         <div className="navbar-end space-x-6">
           <NavLink
-            className={({isActive})=> `p-2  ${isActive? 'ring-4  ring-secondary' : ''} bg-white rounded-full text-secondary hover:ring-4 hover:ring-secondary`}
+            className={({isActive})=> `p-4  ${isActive? 'ring-4  ring-secondary' : ''} bg-white rounded-full text-secondary hover:ring-4 hover:ring-secondary relative`}
             to="/Cart"
           >
             <FaCartArrowDown size={16} />
+            <h3 className="absolute -top-1 right-5">{storedId.length}</h3>
           </NavLink>
           <NavLink
-            className={({isActive})=> `p-2  ${isActive? 'ring-4  ring-secondary' : ''} bg-white rounded-full text-secondary hover:ring-4 hover:ring-secondary`}
+            className={({isActive})=> `p-4 ${isActive? 'ring-4  ring-secondary' : ''} bg-white rounded-full text-secondary hover:ring-4 hover:ring-secondary`}
             to="/WishList"
           >
             <FaHeart size={20} />

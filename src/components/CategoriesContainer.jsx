@@ -1,24 +1,24 @@
-import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 
 const CategoriesContainer = () => {
     const [categories,setCategories] = useState([])
     useEffect(()=>{
-        axios.get('/categories.json')
-        .then(data=>setCategories(data.data.categories))
+        fetch('/categories.json')
+        .then(res=> res.json())
+        .then(data=> setCategories(data.categories))
     },[])
-    console.log(categories)
   return (
     <div>
-      <div className='my-4 flex gap-5'>
+      <div className='my-4'>
             {/* category-container */} 
             <div className='border-2 p-4 bg-white rounded-xl'>
-            <div className='flex flex-col gap-4'>
+            <div className='flex flex-row  flex-wrap md:flex-nowrap justify-between  md:flex-col md:gap-4 gap-2 '>
             {categories.map(category=>
             <NavLink
+            key={category.id}
             to={`home/${category.category}`}
-             className='btn px-7 rounded-3xl'>
+            className={({isActive}) => `btn  rounded-3xl px-7 flex-grow ${isActive ? 'border-2 border-purple-500' : ''}`}>
                     {category.category}
             </NavLink> )}
             </div>
