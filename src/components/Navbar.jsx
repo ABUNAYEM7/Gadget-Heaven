@@ -1,6 +1,7 @@
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { FaCartArrowDown, FaHeart } from "react-icons/fa6";
 import { useCart } from "../Utility/CartContext";
+import { CgProfile } from "react-icons/cg";
 
 const Navbar = () => {
   const { pathname } = useLocation();
@@ -32,9 +33,6 @@ const Navbar = () => {
       </li>
     </>
   );
-  const logInClickHandler = () => {
-    console.log("hello");
-  };
   const { cartItems, wishListItems } = useCart();
   return (
     <div
@@ -80,7 +78,7 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 space-x-6">{links}</ul>
         </div>
-        <div className="navbar-end space-x-6">
+        <div className="navbar-end space-x-3 md:space-x-6">
           <NavLink
             className={({ isActive }) =>
               `p-4  ${
@@ -106,6 +104,16 @@ const Navbar = () => {
             <h3 className="absolute -top-1 right-5 text-highlight">
               {wishListItems.length}
             </h3>
+          </NavLink>
+          <NavLink
+          to={'/Login'}
+          className={({ isActive }) =>
+            `p-4 ${
+              isActive ? "ring-4  ring-secondary" : ""
+            } bg-white rounded-full text-secondary hover:ring-4 hover:ring-secondary relative`
+          }
+          >
+            <CgProfile size={20} />
           </NavLink>
         </div>
       </div>

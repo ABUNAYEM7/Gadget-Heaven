@@ -14,6 +14,7 @@ import ProductDetails from "../components/ProductDetails";
 import CartProvider from "../Utility/CartContext";
 import CartDashboard from "../components/CartDashboard";
 import WishListDashboard from "../components/WishListDashboard";
+import Login from "../pages/Login";
 
   const routes = createBrowserRouter([
     {
@@ -68,7 +69,11 @@ import WishListDashboard from "../components/WishListDashboard";
         {
             path :'/WishList',
             element : <WishList/>
-        }
+        },
+        {
+            path :'/Login',
+            element : <Login/>
+        },
         ]
     },
     {

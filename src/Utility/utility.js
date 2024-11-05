@@ -59,4 +59,23 @@ const reset =()=>{
     localStorage.removeItem('products')
 }
 
-export {getStoredProducts,setProducts,getStoredWhishList,setWishList,removeWishList,removeProduct,reset}
+
+const getStoredEmail =()=>{
+    const storedEmail = localStorage.getItem('email')
+    if(storedEmail){
+        return JSON.parse(storedEmail)
+    }
+    return []
+}
+
+
+const setEmail =(email)=>{
+    const storedEmailStr = getStoredEmail()
+    if(storedEmailStr.includes(email)){
+       alert('You are Already Log In')
+    }else{
+        storedEmailStr.push(email)
+        localStorage.setItem('email',JSON.stringify(storedEmailStr))
+    }
+}
+export {getStoredProducts,setProducts,getStoredWhishList,setWishList,removeWishList,removeProduct,reset,setEmail,getStoredEmail}
