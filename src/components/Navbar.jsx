@@ -1,25 +1,47 @@
-import { Link, NavLink, useLocation, } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { FaCartArrowDown, FaHeart } from "react-icons/fa6";
 import { useCart } from "../Utility/CartContext";
 
 const Navbar = () => {
-  const {pathname} = useLocation()
+  const { pathname } = useLocation();
   const links = (
     <>
       <li>
-        <NavLink className='text-sm font-medium  md:text-lg md:font-bold duration-300' to={"/"}>Home</NavLink>
+        <NavLink
+          className="text-sm font-medium  md:text-lg md:font-bold duration-300"
+          to={"/"}
+        >
+          Home
+        </NavLink>
       </li>
       <li>
-        <NavLink className='text-sm font-medium  md:text-lg md:font-bold'  to={"/Statistics"}>Statistics</NavLink>
+        <NavLink
+          className="text-sm font-medium  md:text-lg md:font-bold"
+          to={"/Statistics"}
+        >
+          Statistics
+        </NavLink>
       </li>
       <li>
-        <NavLink className='text-sm font-medium  md:text-lg md:font-bold'  to={"/Dashboard"}>Dashboard</NavLink>
+        <NavLink
+          className="text-sm font-medium  md:text-lg md:font-bold"
+          to={"/Dashboard"}
+        >
+          Dashboard
+        </NavLink>
       </li>
     </>
   );
-  const {cartItems,wishListItems} = useCart()
+  const logInClickHandler = () => {
+    console.log("hello");
+  };
+  const { cartItems, wishListItems } = useCart();
   return (
-    <div className={`max-w-screen-2xl mx-auto md:p-3   ${pathname == '/Home/All%20Products' && 'bg-highlight text-white'}`}>
+    <div
+      className={`max-w-screen-2xl mx-auto md:p-3   ${
+        pathname == "/Home/All%20Products" && "bg-highlight text-white"
+      }`}
+    >
       <div className="navbar max-w-screen-xl mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
@@ -47,7 +69,12 @@ const Navbar = () => {
             </ul>
           </div>
           <div>
-            <Link to={'/'} className="text-lg font-medium md:text-xl md:font-bold ">Gadget Heaver</Link>
+            <Link
+              to={"/"}
+              className="text-lg font-medium md:text-xl md:font-bold "
+            >
+              Gadget Heaver
+            </Link>
           </div>
         </div>
         <div className="navbar-center hidden lg:flex">
@@ -55,18 +82,30 @@ const Navbar = () => {
         </div>
         <div className="navbar-end space-x-6">
           <NavLink
-            className={({isActive})=> `p-4  ${isActive? 'ring-4  ring-secondary' : ''} bg-white rounded-full text-secondary hover:ring-4 hover:ring-secondary relative`}
+            className={({ isActive }) =>
+              `p-4  ${
+                isActive ? "ring-4  ring-secondary" : ""
+              } bg-white rounded-full text-secondary hover:ring-4 hover:ring-secondary relative`
+            }
             to="/Cart"
           >
             <FaCartArrowDown size={16} />
-            <h3 className="absolute -top-1 right-5 text-highlight">{cartItems.length}</h3>
+            <h3 className="absolute -top-1 right-5 text-highlight">
+              {cartItems.length}
+            </h3>
           </NavLink>
           <NavLink
-            className={({isActive})=> `p-4 ${isActive? 'ring-4  ring-secondary' : ''} bg-white rounded-full text-secondary hover:ring-4 hover:ring-secondary relative`}
+            className={({ isActive }) =>
+              `p-4 ${
+                isActive ? "ring-4  ring-secondary" : ""
+              } bg-white rounded-full text-secondary hover:ring-4 hover:ring-secondary relative`
+            }
             to="/WishList"
           >
             <FaHeart size={20} />
-            <h3 className="absolute -top-1 right-5 text-highlight">{wishListItems.length}</h3>
+            <h3 className="absolute -top-1 right-5 text-highlight">
+              {wishListItems.length}
+            </h3>
           </NavLink>
         </div>
       </div>

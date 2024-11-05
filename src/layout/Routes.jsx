@@ -56,7 +56,8 @@ import WishListDashboard from "../components/WishListDashboard";
               },
               {
                 path : '/Dashboard/WishListDashboard',
-                element :<WishListDashboard/>
+                element :<WishListDashboard/>,
+                loader :()=> fetch('/AllData.json')
               },
             ]
         },

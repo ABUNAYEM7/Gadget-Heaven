@@ -1,5 +1,5 @@
-import { Children, createContext, useContext, useEffect, useState } from "react";
-import { getStoredProducts, getStoredWhishList, setProducts, setWishList } from "./utility";
+import { createContext, useContext, useEffect, useState } from "react";
+import { getStoredProducts, getStoredWhishList, removeProduct, removeWishList, reset, setProducts, setWishList } from "./utility";
 
 const CartContext = createContext() 
 
@@ -16,14 +16,43 @@ const CartProvider =({children})=>{
         setWishList(id)
         setWishListItems(getStoredWhishList())
     }
+    // remove-product-from-wishList
+    const removedWishListItems =(id)=>{
+        removeWishList(id)
+        setWishListItems(getStoredWhishList())
+    }
 
+    // remove-product-from-cart
+    const removedProducts =(id)=>{
+        removeProduct(id)
+        setCartItems(getStoredProducts())
+    }
+    
+
+    // reset-function
+    const resetAll =()=>{
+        reset()
+        setCartItems(getStoredProducts())
+    }
+    
+ 
     useEffect(()=>{
         localStorage.setItem('products', JSON.stringify(cartItems))
         localStorage.setItem('wishList',JSON.stringify(wishListItems))
     },[cartItems,wishListItems])
     
     return (
-        <CartContext.Provider value={{addToCart,cartItems,addToWishList,wishListItems}}>
+        <CartContext.Provider value={{
+            addToCart,
+            cartItems,
+            addToWishList,
+            wishListItems,
+            removedWishListItems,
+            removedProducts,
+            setWishListItems,
+            setCartItems,
+            resetAll
+            }}>
             {children}
         </CartContext.Provider>
     )

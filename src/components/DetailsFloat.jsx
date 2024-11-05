@@ -5,6 +5,7 @@ import { getStoredProducts} from "../Utility/utility";
 import { useCart } from "../Utility/CartContext";
 
 
+
 const DetailsFloat = () => {
   const [details, setDetails] = useState({});
   const [added,setAdded] = useState(false)
@@ -40,10 +41,12 @@ const DetailsFloat = () => {
   const cartClickHandler =(id)=>{
         addToCart(id)
         setAdded(true)
+        alert('Product Added To The Cart')
   }
   const wishListClickHandler =(id)=>{
         addToWishList(id)
         setWishListAdd(true)
+        
   }
   return (
     <div className="md:relative lg:max-w-[1100px] lg:h-[350px]  mx-auto">

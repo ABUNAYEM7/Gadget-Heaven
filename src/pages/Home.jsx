@@ -14,7 +14,7 @@ const Home = () => {
       <Hero/>
       </section>
       {/* float-section */}
-      <section className=' my-8 min-h-[400px] '>
+      <section className=' my-8 md:min-h-[400px] '>
         <Floats/>
       </section>
       {/* category-container */}
