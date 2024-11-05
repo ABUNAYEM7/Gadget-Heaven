@@ -1,18 +1,30 @@
 import React, { useContext, useEffect, useState } from "react";
 import { DataContext, ProductIdContext } from "./ProductDetails";
 import { FaStar ,FaRegStarHalfStroke,FaCartArrowDown, FaHeart} from "react-icons/fa6";
+import { getStoredProducts} from "../Utility/utility";
+import { useCart } from "../Utility/CartContext";
 
 
 const DetailsFloat = () => {
   const [details, setDetails] = useState({});
+  const [added,setAdded] = useState(false)
+  const [wishListAdd,setWishListAdd] =useState(false)
   // useContext
   const productId = useContext(ProductIdContext);
   const data = useContext(DataContext);
+  const {addToCart,addToWishList} = useCart()
   // data-fetching
   useEffect(() => {
     const productDetails = [...data].find((element) => element.id == productId);
     setDetails(productDetails || {});
+    const storedId = getStoredProducts()
+    const isExist = storedId.find(id=> id == productId)
+    if(isExist){
+        setAdded(true)
+        setWishListAdd(true)
+    }
   }, [data, productId]);
+
   const {
     image,
     title,
@@ -23,9 +35,15 @@ const DetailsFloat = () => {
     rating,
     id
   } = details;
+
+//   cart-click-handler
   const cartClickHandler =(id)=>{
-        console.log('got click',id)
-        
+        addToCart(id)
+        setAdded(true)
+  }
+  const wishListClickHandler =(id)=>{
+        addToWishList(id)
+        setWishListAdd(true)
   }
   return (
     <div className="md:relative lg:max-w-[1100px] lg:h-[350px]  mx-auto">
@@ -84,11 +102,15 @@ const DetailsFloat = () => {
                   </div>
                   <div className="flex items-center gap-2">
                     <button
+                    disabled ={added}
                     onClick={()=>cartClickHandler(id)}
                      className="btn px-3 bg-highlight text-white hover:text-highlight">
                         Add TO Cart <FaCartArrowDown/>
                     </button>
-                    <button className="btn p-4 rounded-full">
+                    <button
+                    onClick ={()=> wishListClickHandler(id)}
+                    disabled ={wishListAdd}
+                    className="btn p-4 rounded-full">
                         <FaHeart/>
                     </button>
                   </div>

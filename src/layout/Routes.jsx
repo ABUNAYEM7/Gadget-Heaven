@@ -11,11 +11,14 @@ import Errors from "../errorPage/Errors";
 import Home from "../pages/Home";
 import AllProducts from "../components/products/AllProducts";
 import ProductDetails from "../components/ProductDetails";
+import CartProvider from "../Utility/CartContext";
+import CartDashboard from "../components/CartDashboard";
+import WishListDashboard from "../components/WishListDashboard";
 
   const routes = createBrowserRouter([
     {
         path :'/',
-        element : <MainLayout/>,
+        element :<MainLayout/>,
         errorElement :<Errors/>,
         children :[
           {
@@ -40,7 +43,22 @@ import ProductDetails from "../components/ProductDetails";
         },
         {
             path :'/Dashboard',
-            element : <Dashboard/>
+            element : <Dashboard/>,
+            children :[
+              {
+                index : true,
+                element :<Navigate to = '/Dashboard/CartDashboard'/>,
+              },
+              {
+                path : '/Dashboard/CartDashboard',
+                element :<CartDashboard/>,
+                loader :()=> fetch('/AllData.json')
+              },
+              {
+                path : '/Dashboard/WishListDashboard',
+                element :<WishListDashboard/>
+              },
+            ]
         },
         {
             path :'/Cart',
@@ -55,7 +73,7 @@ import ProductDetails from "../components/ProductDetails";
     {
       path :'Home/:category/:productId',
       element :<ProductDetails/>,
-      loader : ()=> fetch('../AllData.json')
+      loader : ()=> fetch('/AllData.json')
     }
   ])
 

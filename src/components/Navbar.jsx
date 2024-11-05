@@ -1,10 +1,8 @@
-import React, { useEffect, useState } from "react";
 import { Link, NavLink, useLocation, } from "react-router-dom";
 import { FaCartArrowDown, FaHeart } from "react-icons/fa6";
-import { getStoredProducts } from "../Utility/utility";
+import { useCart } from "../Utility/CartContext";
 
 const Navbar = () => {
-  const [storedId,setStoredId] = useState([])
   const {pathname} = useLocation()
   const links = (
     <>
@@ -19,11 +17,7 @@ const Navbar = () => {
       </li>
     </>
   );
-  useEffect(()=>{
-    const storeProduct = getStoredProducts()
-    setStoredId(storeProduct)
-  },[])
- console.log(storedId.length)
+  const {cartItems,wishListItems} = useCart()
   return (
     <div className={`max-w-screen-2xl mx-auto md:p-3   ${pathname == '/Home/All%20Products' && 'bg-highlight text-white'}`}>
       <div className="navbar max-w-screen-xl mx-auto">
@@ -65,13 +59,14 @@ const Navbar = () => {
             to="/Cart"
           >
             <FaCartArrowDown size={16} />
-            <h3 className="absolute -top-1 right-5">{storedId.length}</h3>
+            <h3 className="absolute -top-1 right-5 text-highlight">{cartItems.length}</h3>
           </NavLink>
           <NavLink
-            className={({isActive})=> `p-4 ${isActive? 'ring-4  ring-secondary' : ''} bg-white rounded-full text-secondary hover:ring-4 hover:ring-secondary`}
+            className={({isActive})=> `p-4 ${isActive? 'ring-4  ring-secondary' : ''} bg-white rounded-full text-secondary hover:ring-4 hover:ring-secondary relative`}
             to="/WishList"
           >
             <FaHeart size={20} />
+            <h3 className="absolute -top-1 right-5 text-highlight">{wishListItems.length}</h3>
           </NavLink>
         </div>
       </div>
