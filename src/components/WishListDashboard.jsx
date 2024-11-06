@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 
 const WishListDashboard = () => {
   const data = useLoaderData()
-  const {wishListItems,removedWishListItems} = useCart()
+  const {wishListItems,removedWishListItems,addToCart} = useCart()
   const [storeWishList,setStoreWishList] = useState([]) 
 
   // filtering-data
@@ -23,6 +23,14 @@ const WishListDashboard = () => {
     toast.success('Product Removed')
   }
 
+  // cartClickHandler
+  const cartClickHandler =(id)=>{
+    addToCart(id)
+    removeWishHandler(id)
+  }
+
+
+   {if(storeWishList.length <= 0 ) return <p className="text-3xl md:text-6xl font-bold text-highlight text-center my-10">No Product Added</p>}
   return (
     <div className="max-w-screen-xl mx-auto my-6 p-4">
       <div>
@@ -49,7 +57,9 @@ const WishListDashboard = () => {
                             <p className='text-xl font-medium text-secondary'>
                             Price : {cart.price}$
                             </p>
-                            <button className="btn px-4 bg-highlight hover:text-highlight text-white">Add To Cart</button>
+                            <button
+                            onClick={()=>cartClickHandler(cart.id)}
+                             className="btn px-4 bg-highlight hover:text-highlight text-white">Add To Cart</button>
                         </div>
                 </div>
                 {/* button-container */}

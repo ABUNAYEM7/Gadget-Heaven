@@ -50,8 +50,8 @@ const DetailsFloat = () => {
         toast.success('Product Add To WishList')
   }
   return (
-    <div className="md:relative lg:max-w-[1100px] lg:h-[350px]  mx-auto">
-      <div className="outline-offset-4 outline-double outline-white rounded-xl  backdrop-blur-md backdrop-blur-50 lg:absolute lg:-top-60  inset-0 m-auto">
+    <div className="md:relative lg:max-w-[1100px] lg:h-[550px]  mx-auto">
+      <div className="outline-offset-4 outline-double outline-white rounded-xl  backdrop-blur-md backdrop-blur-50 lg:absolute lg:-top-40  inset-0 m-auto">
         {/* product-details-container */}
         <div className="max-w-full h-full">
           <div className="hero">

@@ -70,6 +70,7 @@ const CartDashboard = () => {
     navigate('/')
   }
 
+  {if(storedCart.length <= 0 ) return <p className="text-3xl md:text-6xl font-bold text-highlight text-center my-10">No Product Added</p>}
 
   return (
     <div className="max-w-screen-xl mx-auto my-6 md:p-4 border-2">
