@@ -21,7 +21,7 @@ const AllProducts = () => {
 
 
   // data-validations
-  {if(data.length <= 0) return <p className="text-3xl md:text-6xl font-bold text-highlight text-center my-6">No Data Available</p>}
+  {if(data.length <= 0) return <p className="text-3xl md:text-6xl font-bold text-highlight text-center my-6">Coming Soon</p>}
   return (
   <div className="my-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 justify-items-center">
     {data.map(element=> 

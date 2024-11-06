@@ -40,7 +40,8 @@ import Login from "../pages/Login";
           },
           {
             path :'/Statistics',
-            element :<Statistics/>
+            element :<Statistics/>,
+            loader : ()=> fetch('/AllData.json')
         },
         {
             path :'/Dashboard',

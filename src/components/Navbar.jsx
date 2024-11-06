@@ -110,10 +110,10 @@ const Navbar = () => {
           className={({ isActive }) =>
             `p-4 ${
               isActive ? "ring-4  ring-secondary" : ""
-            } bg-white rounded-full text-secondary hover:ring-4 hover:ring-secondary relative`
+            } bg-white rounded-full text-highlight hover:ring-4 hover:ring-secondary relative`
           }
           >
-            <CgProfile size={20} />
+            <CgProfile size={25} />
           </NavLink>
         </div>
       </div>
