@@ -32,13 +32,9 @@ const getStoredWhishList =()=>{
 
 const setWishList =(id)=>{
     const storedWishList = getStoredWhishList()
-    if(storedWishList.includes(id)){
-        alert('Product already exist')
-    }else{
         storedWishList.push(id)
         const storedWishListStr = JSON.stringify(storedWishList)
         localStorage.setItem('wishList',storedWishListStr)
-    }
 }
 
 const removeWishList = (id)=>{
