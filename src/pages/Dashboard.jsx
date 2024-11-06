@@ -9,7 +9,7 @@ const Dashboard = () => {
     <div>
       <div>
         {/* details-info-container */}
-        <div className="min-h-96 max-w-screen-2xl bg-highlight mb-6">
+        <div className="min-h-96 max-w-screen-2xl mx-auto bg-highlight mb-6">
           <div>
             <Info
               title={"Dashboard"}
