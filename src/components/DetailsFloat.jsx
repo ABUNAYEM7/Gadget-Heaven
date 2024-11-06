@@ -3,6 +3,7 @@ import { DataContext, ProductIdContext } from "./ProductDetails";
 import { FaStar ,FaRegStarHalfStroke,FaCartArrowDown, FaHeart} from "react-icons/fa6";
 import { getStoredProducts} from "../Utility/utility";
 import { useCart } from "../Utility/CartContext";
+import { toast } from "react-toastify";
 
 
 
@@ -41,12 +42,12 @@ const DetailsFloat = () => {
   const cartClickHandler =(id)=>{
         addToCart(id)
         setAdded(true)
-        alert('Product Added To The Cart')
+        toast.success('Product Added To The Cart')
   }
   const wishListClickHandler =(id)=>{
         addToWishList(id)
         setWishListAdd(true)
-        
+        toast.success('Product Add To WishList')
   }
   return (
     <div className="md:relative lg:max-w-[1100px] lg:h-[350px]  mx-auto">

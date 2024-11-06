@@ -4,6 +4,7 @@ import { IoTrashBinSharp } from "react-icons/io5";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { HiOutlineAdjustments } from "react-icons/hi";
 import checkMark from '../assets/Group.png'
+import { toast } from "react-toastify";
 
 const CartDashboard = () => {
   const [storedCart, setStoreCart] = useState([]);
@@ -33,6 +34,7 @@ const CartDashboard = () => {
     const sort = [...storedCart].sort((a, b) => b.price - a.price);
     setStoreCart(sort);
     setSorted(true);
+    toast.success('Sorted By Price Successfully')
   };
 
 
@@ -49,7 +51,7 @@ const CartDashboard = () => {
     const removeItem = storedCart.find((element) => element.id === id);
     const itemPrice = parseInt(removeItem.price);
     setPrice(price - itemPrice);
-
+      toast.success('Product Removed')
   };
 
 

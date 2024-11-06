@@ -23,7 +23,6 @@ const removeProduct =(id)=>{
     if(storedProducts){
         const updatedProducts = storedProducts.filter(product=> product!==id)
         localStorage.setItem('products',JSON.stringify(updatedProducts))
-        alert('Product Removed')
     }
 }
 
@@ -51,7 +50,6 @@ const removeWishList = (id)=>{
     if(storedWishList){
         const updatedWishList = storedWishList.filter(productId=>productId !== id)
         localStorage.setItem('wishList', JSON.stringify(updatedWishList))
-        alert('Product Removed')
     }
 }
 

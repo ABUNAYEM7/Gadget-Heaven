@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { useCart } from "../Utility/CartContext";
 import { IoTrashBinSharp } from "react-icons/io5";
+import { toast } from "react-toastify";
 
 const WishListDashboard = () => {
   const data = useLoaderData()
@@ -19,6 +20,7 @@ const WishListDashboard = () => {
     removedWishListItems(id)
     const updatedProduct = storeWishList.filter(element=>element.id !== id)
     setStoreWishList(updatedProduct)
+    toast.success('Product Removed')
   }
 
   return (

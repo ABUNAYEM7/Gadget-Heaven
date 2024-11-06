@@ -4,6 +4,9 @@ import Footer from "./Footer";
 import Info from "./Info";
 import DetailsFloat from "./DetailsFloat";
 import { useLoaderData, useParams } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 export const DataContext = createContext(null);
 export const ProductIdContext = createContext(null);
 
@@ -13,6 +16,19 @@ const ProductDetails = () => {
 
   return (
     <div>
+        <ToastContainer
+              position="top-center"
+              autoClose={500}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="dark"
+              transition: Bounce
+              />
       {/* products-details-section */}
       <ProductIdContext.Provider value={productId}>
         <DataContext.Provider value={data}>

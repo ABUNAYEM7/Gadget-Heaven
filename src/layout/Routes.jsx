@@ -11,10 +11,10 @@ import Errors from "../errorPage/Errors";
 import Home from "../pages/Home";
 import AllProducts from "../components/products/AllProducts";
 import ProductDetails from "../components/ProductDetails";
-import CartProvider from "../Utility/CartContext";
 import CartDashboard from "../components/CartDashboard";
 import WishListDashboard from "../components/WishListDashboard";
 import Login from "../pages/Login";
+
 
   const routes = createBrowserRouter([
     {

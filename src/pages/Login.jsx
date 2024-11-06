@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import Info from "../components/Info";
 import { useForm } from "react-hook-form";
 import { getStoredEmail, setEmail } from "../Utility/utility";
+import { toast } from "react-toastify";
+
 
 const Login = () => {
     const [isLogin, setIsLogin] = useState(false);
@@ -16,13 +18,14 @@ useEffect(()=>{
     const email =getStoredEmail()
     if(email.length > 0){
         const userName = email[0].split('@')[0]
-        alert(`Welcome Dear ${userName}`)
+        toast.success(`Welcome Back Dear ${userName}`)
         setIsLogin(true)
     }
 },[])
 
   const onSubmit =async (data) => {
     await new Promise((resolve)=>setTimeout(resolve,3000))
+    toast.success('Welcome To Gadget Heaven')
     const{email} = data
     setEmail(email)
     setIsLogin(true);
@@ -33,7 +36,7 @@ useEffect(()=>{
   const logOutClickHandler=()=>{
     localStorage.removeItem('email')
     setIsLogin(false)
-    alert('You Log Out Successfully')
+    toast.warn('You Log Out')
   }
 
   return (
@@ -50,7 +53,7 @@ useEffect(()=>{
       </div>
       <section className="min-h-[300px] max-w-screen-xl mx-auto">
         <div className="md:relative w-3/4 lg:max-w-[1100px] lg:h-[400px]  mx-auto">
-          <div className="h-full outline-offset-4 outline-double outline-white rounded-xl p-4  backdrop-blur-md backdrop-blur-50 lg:absolute lg:-top-52  inset-0 m-auto border-2 border-black">
+          <div className="h-full outline-offset-4 outline-double outline-white rounded-xl p-4  backdrop-blur-md backdrop-blur-50 lg:absolute lg:-top-52  inset-0 m-auto shadow-xl lg:shadow-none">
             <div className="h-full flex items-center justify-center ">
               {isLogin
                 ? 
