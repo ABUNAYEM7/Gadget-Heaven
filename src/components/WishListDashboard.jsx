@@ -16,17 +16,17 @@ const WishListDashboard = () => {
   },[data,wishListItems])
 
   // removeProductHandler
-  const removeWishHandler =(id)=>{
+  const removeWishHandler =(id,massage)=>{
     removedWishListItems(id)
     const updatedProduct = storeWishList.filter(element=>element.id !== id)
     setStoreWishList(updatedProduct)
-    toast.success('Product Removed')
+    toast.success(massage)
   }
 
   // cartClickHandler
-  const cartClickHandler =(id)=>{
+  const cartClickHandler =(id,massage)=>{
     addToCart(id)
-    removeWishHandler(id)
+    removeWishHandler(id,massage)
   }
 
 
@@ -58,14 +58,14 @@ const WishListDashboard = () => {
                             Price : {cart.price}$
                             </p>
                             <button
-                            onClick={()=>cartClickHandler(cart.id)}
+                            onClick={()=>cartClickHandler(cart.id,'Product Add To Cart')}
                              className="btn px-4 bg-highlight hover:text-highlight text-white">Add To Cart</button>
                         </div>
                 </div>
                 {/* button-container */}
                 <div>
                     <button 
-                    onClick={()=>removeWishHandler(cart.id)}
+                    onClick={()=>removeWishHandler(cart.id,'Product Removed')}
                     className='btn btn-error text-white p-3 rounded-full'>
                     <IoTrashBinSharp size={20}/>
                     </button>

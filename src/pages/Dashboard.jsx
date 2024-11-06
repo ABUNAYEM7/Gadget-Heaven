@@ -22,12 +22,12 @@ const Dashboard = () => {
           <div className="flex items-center justify-center gap-5 my-6">
             <NavLink
              to={"/Dashboard/CartDashboard"} 
-             className={({isActive}) => `btn  rounded-3xl px-7  ${isActive ? 'bg-white text-highlight border-2 border-primary' : ''}`}>
+             className={({isActive}) => `btn  rounded-3xl px-7 border-2 border-white   text-highlight ${isActive ? 'text-white bg-highlight border-2 border-primary' : ''}`}>
               cart
             </NavLink>
             <NavLink 
             to={"/Dashboard/WishListDashboard"} 
-            className={({isActive}) => `btn  rounded-3xl px-7  ${isActive ? 'bg-white text-highlight border-2 border-primary' : ''}`}>
+            className={({isActive}) => `btn  rounded-3xl px-7 border-2 border-white   text-highlight ${isActive ? 'text-white bg-highlight border-2 border-primary' : ''}`}>
               WishList
             </NavLink>
           </div>
